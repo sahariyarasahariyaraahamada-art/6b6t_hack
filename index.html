@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Rules SMP</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(-45deg,#0f172a,#111827,#1e293b,#0f172a);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h1{
+font-size:70px;
+color:#00ff88;
+text-shadow:0 0 25px #00ff88;
+margin-top:60px;
+animation:float 3s infinite;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-10px);
+}
+}
+
+.card{
+width:90%;
+max-width:850px;
+margin:30px auto;
+padding:35px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border-radius:25px;
+box-shadow:0 0 25px rgba(0,255,136,.5);
+transition:.4s;
+}
+
+.card:hover{
+transform:scale(1.03);
+box-shadow:0 0 40px #00ff88;
+}
+
+.button{
+display:inline-block;
+padding:18px 35px;
+background:#00ff88;
+color:black;
+text-decoration:none;
+font-weight:bold;
+font-size:20px;
+border-radius:15px;
+transition:.4s;
+}
+
+.button:hover{
+transform:scale(1.1);
+background:white;
+}
+
+.copy{
+padding:15px 30px;
+border:none;
+border-radius:15px;
+background:#00ff88;
+font-size:18px;
+cursor:pointer;
+}
+
+.footer{
+margin-top:50px;
+padding:30px;
+}
+</style>
+</head>
+<body>
+
+<h1>No Rules SMP</h1>
+
+<h2>Minecraft Survival Server</h2>
+
+<br>
+
+<h2>📌 IP: norulessmp.mcsh.io</h2>
+
+<br>
+
+<button class="copy" onclick="copyIP()">📋 Copy IP</button>
+
+<br><br>
+
+<a class="button" href="https://discord.gg/GwvNQZcay">
+💬 Discord
+</a>
+
+<div class="card">
+<h2>🟢 Server Info</h2>
+<br>
+<h3>Java + Bedrock</h3>
+<br>
+<h3>24/7 Survival SMP ⚡</h3>
+<br>
+<h3>Bedrock Port: 19132</h3>
+</div>
+
+<div class="card">
+<h2>😂 Random Joke</h2>
+<br>
+<h3 id="joke"></h3>
+</div>
+
+<div class="card">
+<h2>🧩 Random Riddle</h2>
+<br>
+<h3 id="riddle"></h3>
+</div>
+
+<div class="card">
+<h2>🎮 Features</h2>
+<br>
+<h3>✅ Crossplay Support</h3>
+<br>
+<h3>✅ PvP Enabled</h3>
+<br>
+<h3>✅ No Rules Gameplay</h3>
+<br>
+<h3>✅ Friendly Community</h3>
+</div>
+
+<div class="footer">
+© 2026 No Rules SMP
+</div>
+
+<script>
+
+function copyIP(){
+navigator.clipboard.writeText("norulessmp.mcsh.io");
+alert("IP Copied!");
+}
+
+const jokes=[
+"😂 Why did the creeper cross the road? To blow up the chicken!",
+"🤣 Teacher: Why are you late? Student: Because of the sign. Teacher: What sign? Student: School Ahead, Go Slow.",
+"😂 গরু কেন মোবাইল ব্যবহার করে না? কারণ তার Cow-ntact নেই!",
+"🤣 মাছ স্কুলে যায় না কেন? কারণ সে already swimming class করে!"
+];
+
+const riddles=[
+"🧩 What has keys but can't open locks? A piano.",
+"🧩 I speak without a mouth and hear without ears. What am I? An echo.",
+"🧩 এমন কী জিনিস যত কাটবে তত বড় হবে? গর্ত।",
+"🧩 এমন কী জিনিস আছে যা ভিজলেও শুকায় না? পানি।"
+];
+
+document.getElementById("joke").innerHTML=
+jokes[Math.floor(Math.random()*jokes.length)];
+
+document.getElementById("riddle").innerHTML=
+riddles[Math.floor(Math.random()*riddles.length)];
+
+</script>
+
+</body>
+  </html>
