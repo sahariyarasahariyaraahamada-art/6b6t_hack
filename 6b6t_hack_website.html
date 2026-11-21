@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d18">
+<title>6b6t_hack — Minecraft Client</title>
+<style>
+:root{color-scheme:dark;--bg:#090d18;--panel:#111a2b;--line:#24334c;--muted:#9aabc4;--cyan:#55e6d0;--blue:#6d8cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#172b4b 0,transparent 42%),var(--bg);color:#eef4ff;font:16px/1.6 Inter,system-ui,Arial,sans-serif}
+.wrap{width:min(1050px,92%);margin:auto}.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}.brand{font-weight:900;letter-spacing:.5px}.brand span{color:var(--cyan)}.tag{color:var(--muted);font-size:13px}
+.hero{padding:70px 0 48px;max-width:760px}.eyebrow{color:var(--cyan);font-size:13px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(42px,8vw,76px);line-height:1.02;margin:14px 0}.hero p{color:var(--muted);font-size:18px;max-width:650px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:13px 21px;border-radius:12px;text-decoration:none;font-weight:800}.primary{background:linear-gradient(110deg,var(--cyan),#76a9ff);color:#07111d}.secondary{border:1px solid var(--line);color:#eef4ff}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin:18px 0 60px}.panel{background:linear-gradient(145deg,#142139,#0f1727);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 18px 60px #0003}.panel h2{margin:0 0 8px;font-size:20px}.muted{color:var(--muted)}.server{display:flex;align-items:center;justify-content:space-between;gap:16px}.count{font-size:44px;font-weight:900;letter-spacing:-2px}.online{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:1px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-right:7px;box-shadow:0 0 12px var(--cyan)}
+.pill{font-size:12px;color:#c7d5ed;border:1px solid var(--line);border-radius:99px;padding:5px 10px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:60px}.feature{padding:18px;border:1px solid var(--line);border-radius:16px;background:#101a2a}.feature b{display:block;margin-bottom:4px}.feature p{margin:0;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:13px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.features{grid-template-columns:1fr}.hero{padding-top:45px}.server{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="nav"><div class="brand">6b6t<span>_hack</span></div><div class="tag">COMMUNITY CLIENT • RELEASE 26.3</div></header>
+<main>
+<section class="hero"><div class="eyebrow">MINECRAFT CLIENT</div><h1>Own your<br><span style="color:var(--cyan)">gameplay.</span></h1>
+<p>Welcome to the official 6b6t_hack client page. Get the latest 26.3 build and check the public 6b6t server player count.</p>
+<div class="actions"><a class="btn primary" href="https://github.com/sahariyarasahariyaraahamada-art/6b6t_hack/releases/download/26.3/6b6t_hack.jar">↓ Download 6b6t_hack.jar</a><a class="btn secondary" href="https://github.com/sahariyarasahariyaraahamada-art/6b6t_hack/releases">All releases ↗</a></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>6b6t Server Status</h2><p class="muted">Live public Java server status · refreshes every 30 seconds</p>
+<div class="server"><div><div class="online" id="state"><span class="dot"></span>CHECKING STATUS</div><div class="count" id="players">—</div><div class="muted" id="maxplayers">Players online</div></div><div class="pill" id="host">play.6b6t.org</div></div>
+<p class="muted" id="motd" style="font-size:13px;margin-top:16px">Waiting for server response…</p></div>
+<div class="panel"><h2>Release information</h2><p class="muted">Current featured build</p><div style="font-size:32px;font-weight:900">26.3</div><p><span class="pill">JAR</span> <span class="pill">Minecraft</span></p><p class="muted">Download is hosted by GitHub Releases. Always scan files and only run software you trust.</p></div>
+</section>
+<section class="features">
+<div class="feature"><b>Direct download</b><p>One-click access to the supplied GitHub release file.</p></div>
+<div class="feature"><b>Server panel</b><p>Player count and availability from a public status API.</p></div>
+<div class="feature"><b>Release page</b><p>Open GitHub to view available client builds.</p></div>
+</section>
+</main>
+<footer>© 2026 6b6t_hack · Unofficial community project. Not affiliated with Mojang or 6b6t. Server status depends on third-party availability.</footer>
+</div>
+<script>
+const api='https://api.mcstatus.io/v2/status/java/play.6b6t.org';
+async function updateStatus(){
+ const state=document.getElementById('state'),players=document.getElementById('players'),max=document.getElementById('maxplayers'),motd=document.getElementById('motd');
+ try{
+  const r=await fetch(api,{cache:'no-store'}); if(!r.ok) throw Error('status '+r.status);
+  const d=await r.json();
+  if(d.online){state.innerHTML='<span class="dot"></span>ONLINE';players.textContent=(d.players?.online??0).toLocaleString();max.textContent=`Players online · ${d.players?.max??'—'} max`;motd.textContent=(d.motd?.clean||[]).join(' ').slice(0,220)||'Server is responding.'}
+  else{state.textContent='OFFLINE';players.textContent='0';max.textContent='Players online';motd.textContent='The status API reports that the server is offline.'}
+ }catch(e){state.textContent='STATUS UNAVAILABLE';players.textContent='—';max.textContent='Could not load player count';motd.textContent='Could not reach the status service. Try again later.'}
+}
+updateStatus();setInterval(updateStatus,30000);
+</script></body></html>
