@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <meta name="description" content="6b6t_hack client download, 6b6t server status and official player statistics.">
+  <title>6b6t_hack — Client Hub</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar container">
+    <a class="brand" href="#" aria-label="6b6t hack home"><span class="brand-mark">6</span><span>6b6t<span class="accent">_hack</span></span></a>
+    <nav><a href="#features">Features</a><a href="#status">Server status</a><a href="#players">Player stats</a></nav>
+    <a class="top-download" href="https://github.com/sahariyarasahariyaraahamada-art/6b6t_hack/releases" target="_blank" rel="noopener">Releases <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> COMMUNITY CLIENT HUB <span class="version">BUILD 26.3</span></div>
+        <h1>Your 6b6t<br><span class="gradient-text">experience.</span></h1>
+        <p class="hero-lead">A central place for the 6b6t_hack client, live server information and official player statistics.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/sahariyarasahariyaraahamada-art/6b6t_hack/releases/download/26.3/6b6t_hack.jar" download>
+            <span class="download-icon">↓</span><span><strong>Download client</strong><small>6b6t_hack.jar · Release 26.3</small></span>
+          </a>
+          <a class="button button-secondary" href="https://github.com/sahariyarasahariyaraahamada-art/6b6t_hack" target="_blank" rel="noopener">View on GitHub <span>↗</span></a>
+        </div>
+        <div class="trust-line"><span>●</span> Download hosted on GitHub Releases</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="cube"><div class="cube-top"></div><div class="cube-left"></div><div class="cube-right"></div><div class="cube-glow"></div></div>
+        <div class="float-chip chip-one">FABRIC <b>26.3</b></div>
+        <div class="float-chip chip-two"><i></i> CLIENT READY</div>
+        <div class="art-caption">BUILT FOR THE<br><b>ANARCHY ERA</b></div>
+      </div>
+    </section>
+
+    <section class="container feature-strip" id="features">
+      <article><span class="feature-icon">⬇</span><div><b>Direct download</b><small>One-click GitHub release link</small></div></article>
+      <article><span class="feature-icon">◉</span><div><b>Server overview</b><small>Current online player count</small></div></article>
+      <article><span class="feature-icon">⌕</span><div><b>Player statistics</b><small>Official profile lookup</small></div></article>
+    </section>
+
+    <section class="container section-grid">
+      <article class="panel status-panel" id="status">
+        <div class="panel-heading">
+          <div><div class="eyebrow">NETWORK OVERVIEW</div><h2>6b6t server status</h2></div>
+          <span class="live-pill"><i></i> LIVE CHECK</span>
+        </div>
+        <div class="status-main">
+          <div class="status-number" id="online-count">—</div>
+          <div><b>Players online</b><small id="server-state">Checking server status…</small></div>
+        </div>
+        <div class="meter"><span id="player-meter"></span></div>
+        <div class="status-foot"><span id="player-cap">Maximum players: —</span><span id="last-updated">Not checked yet</span></div>
+        <div class="status-error" id="status-error" role="status">Live data is provided by a public Minecraft status service. If unavailable, use the official server page.</div>
+        <a class="text-link" href="https://www.6b6t.org/en/status" target="_blank" rel="noopener">Open official status page ↗</a>
+      </article>
+
+      <article class="panel player-panel" id="players">
+        <div class="eyebrow">PLAYER INTELLIGENCE</div>
+        <h2>Find a player</h2>
+        <p class="panel-copy">Search a Minecraft username and open their profile on the official 6b6t statistics site.</p>
+        <form id="player-form">
+          <label class="sr-only" for="player-name">Minecraft username</label>
+          <div class="search-row"><span>⌕</span><input id="player-name" name="username" maxlength="16" autocomplete="off" placeholder="Enter player username"><button type="submit">Search <span>→</span></button></div>
+        </form>
+        <div class="lookup-result" id="lookup-result" role="status">Player history is shown by the official 6b6t stats site when available.</div>
+        <a class="text-link" href="https://www.6b6t.org/en/stats" target="_blank" rel="noopener">Browse official player statistics ↗</a>
+      </article>
+    </section>
+
+    <section class="container release-panel">
+      <div class="release-symbol">✦</div><div class="release-copy"><div class="eyebrow">LATEST RELEASE</div><h2>6b6t_hack <span>26.3</span></h2><p>Download the client directly from the project's GitHub release.</p></div>
+      <a class="button button-primary release-button" href="https://github.com/sahariyarasahariyaraahamada-art/6b6t_hack/releases/download/26.3/6b6t_hack.jar">Download .JAR <span>↓</span></a>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <a class="brand" href="#"><span class="brand-mark">6</span><span>6b6t<span class="accent">_hack</span></span></a>
+    <p>Unofficial community project. Not affiliated with or endorsed by 6b6t.</p>
+    <span>© <span id="year"></span> 6b6t_hack</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
